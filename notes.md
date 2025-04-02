@@ -241,6 +241,7 @@ Basic command template: `git [command] [options] [arguments]`
 | `git reset --hard` | revert everything to the last commit |
 | `git branch -d <branch-name>` | delete a branch |
 
+<<<<<<< HEAD
 # Doubles
 
 ![Doubles illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/IEEE_754_Double_Floating_Point_Format.svg/2880px-IEEE_754_Double_Floating_Point_Format.svg.png)
@@ -279,6 +280,8 @@ The fraction part of the byte is also called a manitssa
 
 
 
+=======
+>>>>>>> 0913219663dd815452869e1d1d10b0762a37e197
 # Z shell tips
 
 `>>` appends a file (adds onto it)
