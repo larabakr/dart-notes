@@ -1,0 +1,90 @@
+# welcome to Lara's YAML crashcourse
+
+receipt: Oz-Ware Purchase Invoice
+date: 2012-08-06
+customer:
+  first_name: Dorothy
+  family_name: Gale
+
+# notice how you can do strings without quotation marks, except yes, no, on , off bc theyre technically keywords here, alt booleans lol
+# use _ instead of a blank space, and | at the top if you want a multiline string
+# when you indent with - its like ur defining a list/array []
+# you could also just prefix the whole thing with !!set and then skip the dash indentations but they gotta be unique n unordered bc sets
+items:
+  - part_no: A4786
+    descrip: Water Bucket (Filled)
+    price: 1.47
+    quantity: 4
+
+  - part_no: E1628
+    descrip: High Heeled "Ruby" Slippers
+    size: 8
+    price: 133.7
+    quantity: 1
+
+# when you do | above multi-line text ur allowing it to be multi-line. Literal Block
+# also yea you can nest maps inside one another
+bill-to: &id001
+  street: |
+    123 Tornado Alley
+    Suite 16
+  city: East Centerville
+  state: KS
+
+# * and &: relational anchors
+# & defines an anchor label
+# * references an anchor label
+# this is used for repeated nodes. when you want 2 fields to share the same value.
+
+# use <<: *anchor when you wanna merge maps. it's like spread (...) except for maps only.
+
+default_settings: &defaults
+  theme: dark
+  language: EN
+
+user_settings:
+  <<: *defaults # u could also merge more than one map if you did <<: [*defaults, *id001]
+  language: FR
+
+ship-to: *id001
+# when you do > it replaces newlines with spaces. Folded Block
+specialDelivery: >
+  Follow the Yellow Brick
+  Road to the Emerald City.
+  Pay no attention to the
+  man behind the curtain.
+
+# also JSON is valid YAML, because YAML is a strict superset of JSON.
+# both are data serialization languages, meaning they're used for data exchange and configuration files
+# serialization means storing, transmitting, and reconstructing arbitrary data.
+
+sex: { "name": "A" } # strings r optional doe, also this is called flow style
+
+gender:
+  name: A #now this is block style
+
+# ~ = null
+
+# yaml also has explicit types: int, bool, float, str, timestamp, null and binary for base64 binrary data, u can store pics like this here
+# speaking of booleans, true/false can be yes/no here lol
+# !![type name] [value]
+
+iraq: !!str shithole
+
+# key: value
+
+# keys can be complex (dicts/maps or lists/arays) when prefixed by ?
+
+? { name: "sexy mama", age: 45 }: !!bool true # u can also use block style here
+
+my_love_for_joory: .inf
+# .inf = infinity
+# -.inf = negative infinity
+# .nan = not a number (like javascript's NaN)
+
+# there are also escape sequences like \n \0 \\ \t \"
+
+# and you can store more than one yaml document in one file
+
+# --- starts new document
+# you can leave ... at the end of the file to say no more docs
