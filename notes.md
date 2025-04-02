@@ -241,6 +241,44 @@ Basic command template: `git [command] [options] [arguments]`
 | `git reset --hard` | revert everything to the last commit |
 | `git branch -d <branch-name>` | delete a branch |
 
+# Doubles
+
+![Doubles illustration](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/IEEE_754_Double_Floating_Point_Format.svg/2880px-IEEE_754_Double_Floating_Point_Format.svg.png)
+
+Where the radix point is determined on a high level through the exponent
+This is a double precision floating point number
+Occupies 64 bits on memory
+
+```
+0 01111111000 1000000000000000000000000000000000000000000000000000_2
+≙ 3F88 0000 0000 000016
+≙ +2−7 × 1.12
+= 0.000000112
+= 0.01171875 (3/256)
+
+```
+
+```
+  0 10000000000 1001001000011111101101010100010001000010110100011000_2
+≙ 4009 21FB 5444 2D18_16
+≈ 3.141592653589793116 (closest approximation to π)
+```
+
+the _2 is referring to base-2
+_16 is hexadecimal (base-16)
+iEEE 754 has an exponent bias of 1023
+for the first example, 01111111000 would be 1016 in base 10 
+take into account the bias
+the actual exponent would be -7
+And this is how we express fractions in computers, even though we can't actually use a decimal point or integer signs
+The exponent is stored as an unsigned integer but it actually represents a signed exponent, the bias is used to shift the bits so they can express both the positive and negative without needing an explicit sign bit.
+
+As you see the exponent utilizes 11 bits, meaning the range is 0 to 2047 in base 10. We need to adjust the range to include negative numbers
+So instead of storing negative exponents directly, the ieee 754 standard adds 1023 to it
+The fraction part of the byte is also called a manitssa
+
+
+
 # Z shell tips
 
 `>>` appends a file (adds onto it)
