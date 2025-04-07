@@ -517,3 +517,8 @@ Ctrl + E to go to the end.
 Ctrl + A to go to the start.
 
 Alt + B/Alt + F to navigate by word.
+
+Favorite ohmyzsh theme: Kphoen
+
+ZSH config : ~/.zshrc
+it is also where the PATH lives, and where ohmyzsh is configured and set up
