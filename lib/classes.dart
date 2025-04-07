@@ -2,6 +2,9 @@ void main() {
   var lara = new Person('lara abu bakr', 19);
 
   print(lara.greeting());
+
+  var laras_daughter = new Child('ruqaya', lara.name, lara.age);
+  print(laras_daughter.childName);
 }
 
 // when we're creating objects using classes we use dot notation to access attributes
@@ -25,4 +28,12 @@ class Person {
     // defining a method
     return "name: $name, age: $age"; // string interpolation
   }
+}
+
+// inhertience
+
+class Child extends Person {
+  String childName;
+
+  Child(this.childName, super.name, super.age);
 }
