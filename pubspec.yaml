@@ -1,0 +1,6 @@
+name: firstapp
+environment:
+  sdk: "^3.7.2"
+dependencies:
+  yaml: ^3.1.3
+  sqlite3: ^2.7.5
